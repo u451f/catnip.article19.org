@@ -97,14 +97,6 @@ b, strong {
     color: #b9f3c3;
 }
 
-.site-nav .page-link:first-child {
-    background: url(../images/favicon.png) no-repeat 0 -15px;
-    width: 48px;
-    height: 25px;
-    display: inline-block;
-    text-indent: -10000px;
-}
-
 /* sections */
 
 .section {
