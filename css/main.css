@@ -18,9 +18,9 @@ body {
   background: #fff center center repeat;
 }
 
-a         { color: #b9f3c3; text-decoration: none; }
+a         { color: #fb9595; text-decoration: none; }
 a:hover   { color: #000; text-decoration: underline; }
-a:visited { color: #b9f3c3; }
+a:visited { color: #fb9595; }
 
 b, strong {
     font-weight: 700;
@@ -46,30 +46,29 @@ b, strong {
 /* Site header */
 
 .site-header {
-  min-height: 56px;
-  background: url(../images/header.png) no-repeat center center !important;
-  padding: 7em 1em !Important;
+  min-height: 500px;
+  background: url(../images/cover.jpg) no-repeat center top;
+  padding: 18em 1em !important;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .site-title,
 .site-title:hover,
 .site-title:visited {
-  color: #b9f3c3;
-  text-transform: uppercase;
+  color: #000;
   font-size:2.5em;
   display: block;
   position: relative;
-  z-index: 1;
   word-wrap: break-word;
 }
 
 .site-title a {
-  color: #ffcb51;
+  color: #000;
 }
 
 .site-subtitle {
-    color: #b9f3c3;
+    color: #000;
     font-weight: bold;
     font-size: 1.9em;
     line-height: 1.3em;
@@ -94,7 +93,7 @@ b, strong {
 }
 
 .site-nav .page-link.current {
-    color: #b9f3c3;
+    color: #fb9595;
 }
 
 /* sections */
@@ -115,9 +114,15 @@ b, strong {
     margin-bottom: 1em;
 }
 
+.section img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1em;
+}
+
 .section:nth-child(odd) {
-     background-color: #b9f3c3;
-     color: #fff;
+     background-color: #fb9595;
+     color: #000;
 }
 
 .section:nth-child(odd) .section-title {
@@ -127,17 +132,6 @@ b, strong {
 .footer .section-title {
     margin-bottom: .3em;
     color: #fff;
-}
-
-.footer #sponsors {
-    margin-bottom: 3em;
-}
-
-.footer img {
-    display: inline-block;
-    vertical-align: middle;
-    margin: 1em;
-    max-width: 30%;
 }
 
 .footer {
