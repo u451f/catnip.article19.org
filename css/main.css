@@ -18,9 +18,9 @@ body {
   background: #fff center center repeat;
 }
 
-a         { color: #2a7ae2; text-decoration: none; }
+a         { color: #b9f3c3 text-decoration: none; }
 a:hover   { color: #000; text-decoration: underline; }
-a:visited { color: #205caa; }
+a:visited { color: #b9f3c3; }
 
 b, strong {
     font-weight: 700;
@@ -55,7 +55,7 @@ b, strong {
 .site-title,
 .site-title:hover,
 .site-title:visited {
-  color: #ffcb51;
+  color: #b9f3c3;
   text-transform: uppercase;
   font-size:2.5em;
   display: block;
