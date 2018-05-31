@@ -18,7 +18,7 @@ body {
   background: #fff center center repeat;
 }
 
-a         { color: #b9f3c3 text-decoration: none; }
+a         { color: #b9f3c3; text-decoration: none; }
 a:hover   { color: #000; text-decoration: underline; }
 a:visited { color: #b9f3c3; }
 
@@ -94,7 +94,7 @@ b, strong {
 }
 
 .site-nav .page-link.current {
-    color: #2a7ae2;
+    color: #b9f3c3;
 }
 
 .site-nav .page-link:first-child {
@@ -124,17 +124,17 @@ b, strong {
 }
 
 .section:nth-child(odd) {
-     background-color: #0b1728;
+     background-color: #b9f3c3;
      color: #fff;
 }
 
 .section:nth-child(odd) .section-title {
-    color: #ffcb51;
+    color: #fff;
 }
 
 .footer .section-title {
     margin-bottom: .3em;
-    color: #ffcb51;
+    color: #fff;
 }
 
 .footer #sponsors {
