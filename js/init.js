@@ -18,7 +18,7 @@ Copyright (C) 2016 u451f
 @licend
 */
 
-jQuery(document).ready(function($) {
+$(document).ready(function($) {
 
     // antispam
     $('a.mail').each(function() {
@@ -30,16 +30,18 @@ jQuery(document).ready(function($) {
 
     // if there is a hash in the URL, scroll to corresponding part
     $(window).bind('load', function () {
-        scrollToElm();
         if(location.hash !== "undefined") {
-          $('.page-link').each(function() {
-            var url = $(this).attr('href');
-            var parts = url.split("#");
-            var trgt = parts[1];
-            if(location.hash == "#"+trgt) {
-              $(this).addClass('current');
-            }
-          });
+            var url = document.location.href;
+            scrollToElm(url);
+            $('.page-link').each(function() {
+                var link = $(this).attr('href');
+                var parts = link.split("#");
+                var trgt = parts[1];
+                if(location.hash == "#"+trgt) {
+                    console.log(trgt + "trgt");
+                    $(this).addClass('current');
+                }
+            });
         }
     });
 
@@ -47,13 +49,7 @@ jQuery(document).ready(function($) {
         $('.page-link').removeClass('current');
         $(this).addClass('current');
         var url = $(this).attr('href');
-        var parts = url.split("#");
-        var trgt = parts[1];
-        var offset = $('.site-nav').height();
-        if(trgt != undefined) {
-            event.preventDefault();
-            $('html,body').animate({scrollTop:$(this.hash).offset().top - offset}, 500);
-        }
+        scrollToElm(url);
     });
 
     // activate menu elements when they appear in the window
@@ -63,30 +59,42 @@ jQuery(document).ready(function($) {
         var rel = $(this).attr('rel');
         if(rel != undefined) {
           if(isScrolledIntoView('#'+rel)) {
-            $('.page-link').removeClass('current');
+          console.log("rel "+rel);
+              $('.page-link').removeClass('current');
               $(this).addClass('current');
           }
         }
       });
     });
-
 });
 
-function scrollToElm() {
-    var url = document.location.href;
+function scrollToElm(url) {
     var parts = url.split("#");
     var trgt = parts[1];
     var offset = $('.site-nav').height();
     if(trgt != undefined) {
-        jQuery('html,body').animate({scrollTop:jQuery('#'+trgt).offset().top - offset}, 500);
+        //event.preventDefault();
+        $('html,body').animate({scrollTop:$('#'+trgt).offset().top - offset}, 500);
     }
+}
+
+// check if an element becomes visible from the bottom of the screen
+function isScrolledIntoView(elem) {
+    var elementTop = $(elem).offset().top;
+    var elementBottom = elementTop + $(elem).outerHeight();
+    var viewportTop = $(window).scrollTop();
+    var viewportBottom = viewportTop + $(window).height();
+    // return if element is starting to be visible at the bottom
+    return elementBottom > viewportTop && elementTop < viewportBottom;
+    // return only if element is entirely visible
+    return viewportTop < elementTop && viewportBottom > elementBottom;
 }
 
 // adjust video sizes
 function adjustIframes() {
-  jQuery('iframe').each(function(){
+  $('iframe').each(function(){
     var
-    $this       = jQuery(this),
+    $this       = $(this),
     proportion  = $this.data( 'proportion' ),
     w           = $this.attr('width'),
     actual_w    = $this.width();
@@ -102,17 +110,4 @@ function adjustIframes() {
   });
 }
 
-jQuery(window).on('resize load',adjustIframes);
-
-function isScrolledIntoView(elem) {
-    var $elem = jQuery(elem);
-    var $window = jQuery(window);
-
-    var docViewTop = $window.scrollTop();
-    var docViewBottom = docViewTop + $window.height();
-
-    var elemTop = $elem.offset().top;
-    var elemBottom = elemTop + $elem.height();
-
-    return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
-}
+$(window).on('resize load',adjustIframes);
