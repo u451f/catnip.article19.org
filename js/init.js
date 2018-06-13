@@ -71,7 +71,7 @@ $(document).ready(function($) {
 function scrollToElm(url) {
     var parts = url.split("#");
     var trgt = parts[1];
-    var offset = $('.site-nav').height();
+    var offset = $('.site-nav').outerHeight();
     if(trgt != undefined) {
         //event.preventDefault();
         $('html,body').animate({scrollTop:$('#'+trgt).offset().top - offset}, 500);
@@ -86,8 +86,6 @@ function isScrolledIntoView(elem) {
     var viewportBottom = viewportTop + $(window).height();
     // return if element is starting to be visible at the bottom
     return elementBottom > viewportTop && elementTop < viewportBottom;
-    // return only if element is entirely visible
-    return viewportTop < elementTop && viewportBottom > elementBottom;
 }
 
 // adjust video sizes

@@ -1,7 +1,7 @@
 /* Base */
 /* ----------------------------------------------------------*/
 
-@import url(https://fonts.googleapis.com/css?family=Montserrat:700);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:700,Roboto:500);
 
 * {
   margin: 0;
@@ -11,16 +11,17 @@
 html, body { height: 100%; }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 15px;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
   line-height: 1.6em;
   font-weight: 400;
   background: #fff center center repeat;
 }
 
-a         { color: #76af4e; text-decoration: none; }
+a         { color: #62ccf5; text-decoration: none; }
 a:hover   { text-decoration: underline; }
-a:visited { color: #76af4e; }
+a:visited { color: #62ccf5; }
 
 b, strong {
     font-weight: 700;
@@ -38,7 +39,7 @@ b, strong {
   text-align: left;
 }
 
-.post-header .wrap, .footer .wrap, #get .wrap {
+.post-header .wrap, .footer .wrap, #get .wrap, #news .wrap  {
   text-align: center;
 }
 
@@ -63,7 +64,7 @@ b, strong {
 .site-title:hover,
 .site-title:visited {
   color: #111;
-  font-size:5em;
+  font-size: 6em;
   font-weight: bold;
   display: block;
   position: relative;
@@ -91,21 +92,21 @@ b, strong {
     top: 0;
     width: 100%;
     left: 0;
-    padding: 0.5em 0.75em;
-    text-transform: uppercase;
+    padding: 1em 0.75em;
     font-weight: bold;
     background: #111;
+    font-size: 1.1em;
 }
 
 .site-nav .menu-icon { display: none; }
 
 .site-nav .page-link {
     color: #fff;
-    margin: 0 10px;
+    padding: 0 10px;
 }
 
 .site-nav .page-link.current {
-    color: #F73E5F;
+    color: #62ccf5;
 }
 
 /* sections */
@@ -117,9 +118,9 @@ b, strong {
 .section .section-title {
     font-family: "Montserrat", sans-serif;
     text-align: center;
-    font-size: 2.3em;
+    font-size: 3em;
     line-height: 1.35em;
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
 }
 
 .section p, .section ul, .section ol {
@@ -138,11 +139,12 @@ b, strong {
 
 .section:nth-child(odd) {
      background-color: #000;
-     color: #76af4e;
 }
 
+
+.section:nth-child(odd),
 .section:nth-child(odd) .section-title {
-    /*color: #fff;*/
+     color: #62ccf5;
 }
 
 .footer .section-title {
@@ -295,7 +297,7 @@ select.form {
     padding: 5px;
     margin: 0;
     cursor: pointer;
-    color: #76af4e;
+    color: #62ccf5;
   }
 
   .post-header h1 { font-size: 36px; }
