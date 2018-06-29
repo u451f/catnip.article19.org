@@ -45,6 +45,7 @@ $(document).ready(function($) {
         }
     });
 
+    // menu
     $('.page-link').click(function(event){
         $('.page-link').removeClass('current');
         $(this).addClass('current');
@@ -65,6 +66,39 @@ $(document).ready(function($) {
           }
         }
       });
+    });
+});
+
+// mailer
+$(function() {
+    // Get the form.
+    var form = $('#catnip_form');
+    var formMessages = $('#form-messages');
+    $(form).submit(function(event) {
+        event.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: $(form).attr('action'),
+            data: $(form).serialize(),
+        })
+        .done(function(response) {
+            $(formMessages).removeClass('error');
+            $(formMessages).addClass('success');
+            $(formMessages).text(response);
+            $('#email').val('');
+            //$('#name').val('');
+            //$('#message').val('');
+        })
+        .fail(function(data) {
+            $(formMessages).removeClass('success');
+            $(formMessages).addClass('error');
+
+            if (data.responseText !== '') {
+                $(formMessages).text(data.responseText);
+            } else {
+                $(formMessages).text('Oops! An error occured and your message could not be sent.');
+            }
+        })
     });
 });
 
