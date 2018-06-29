@@ -67,11 +67,10 @@ b, strong {
   overflow: hidden;
   background: url(../images/cover.jpg) no-repeat center top;
   background-size: cover;
-  min-height: 500px;
+  min-height: 600px;
   padding-top: 5em;
   margin: auto;
   position: relative;
-  box-sizing: border-box;
 }
 
 
