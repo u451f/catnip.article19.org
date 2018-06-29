@@ -13,10 +13,12 @@ html, body { height: 100%; }
 body {
   font-family: "Roboto", Arial, Helvetica, sans-serif;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.6em;
   font-weight: 400;
-  background: #fff center center repeat;
+  background-color: #fff;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 a         { color: #62ccf5; text-decoration: none; }
@@ -25,6 +27,14 @@ a:visited { color: #62ccf5; }
 
 b, strong {
     font-weight: 700;
+}
+
+.error {
+    color: red;
+}
+
+.success {
+    color: green;
 }
 
 /* Utility */
@@ -54,15 +64,21 @@ b, strong {
 /* Site header */
 
 .site-header {
-  min-height: 700px;
+  overflow: hidden;
   background: url(../images/cover.jpg) no-repeat center top;
-  padding: 7em 1em !important;
+  background-size: cover;
+  min-height: 500px;
+  padding-top: 5em;
+  margin: auto;
+  position: relative;
   box-sizing: border-box;
 }
+
 
 .site-title,
 .site-title:hover,
 .site-title:visited {
+  margin-top: 0.5em;
   color: #111;
   font-size: 6em;
   font-weight: bold;
@@ -84,6 +100,7 @@ b, strong {
     line-height: 1.5em;
     width: 36%;
     margin-left: 0.5em;
+    position: relative;
 }
 
 .site-nav {
@@ -118,7 +135,7 @@ b, strong {
 .section .section-title {
     font-family: "Montserrat", sans-serif;
     text-align: center;
-    font-size: 3em;
+    font-size: 4em;
     line-height: 1.35em;
     margin-bottom: 0.5em;
 }
@@ -141,10 +158,9 @@ b, strong {
      background-color: #000;
 }
 
-
 .section:nth-child(odd),
 .section:nth-child(odd) .section-title {
-     color: #62ccf5;
+     color: #fff;
 }
 
 .footer .section-title {
