@@ -105,7 +105,7 @@ $(function() {
 function scrollToElm(url) {
     var parts = url.split("#");
     var trgt = parts[1];
-    var offset = $('.site-nav').outerHeight();
+    var offset = $('.site-nav').outerHeight()+2;
     if(trgt != undefined) {
         //event.preventDefault();
         $('html,body').animate({scrollTop:$('#'+trgt).offset().top - offset}, 500);
