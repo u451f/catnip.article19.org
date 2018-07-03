@@ -134,7 +134,7 @@ b, strong {
 }
 
 .section ul, .section ol {
-    margin-left: 1em;
+    margin-left: 1.5em;
 }
 
 .section img {
@@ -142,17 +142,6 @@ b, strong {
     height: auto;
     margin-bottom: 1em;
 }
-
-/*
-.section:nth-child(odd) {
-     background-color: #000;
-}
-
-.section:nth-child(odd),
-.section:nth-child(odd) .section-title {
-     color: #fff;
-}
-*/
 
 .footer {
     padding: 1em 0;
