@@ -115,11 +115,9 @@ function scrollToElm(url) {
 // check if an element becomes visible from the bottom of the screen
 function isScrolledIntoView(elem) {
     var elementTop = $(elem).offset().top;
-    var elementBottom = elementTop + $(elem).outerHeight();
+    var menuPlacement = 120;
     var viewportTop = $(window).scrollTop();
-    var viewportBottom = viewportTop + $(window).height();
-    // return if element is starting to be visible at the bottom
-    return elementBottom > viewportTop && elementTop < viewportBottom;
+    return elementTop < viewportTop+menuPlacement;
 }
 
 // adjust video sizes
