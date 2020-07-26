@@ -35,7 +35,7 @@
                     <a class="page-link" href="#header" rel="header">How the Internet Really Works</a>
                     <a class="page-link" href="#order" rel="order">Order the Book</a>
                     <a class="page-link" href="#meet" rel="meet">Meet Catnip</a>
-                    <a class="page-link" href="#tor" rel="tor">Exploring the Tor network</a>
+                    <a class="page-link" href="#tor" rel="tor">Explore the Tor network</a>
                 </div>
             </nav>
         </div>
@@ -45,11 +45,35 @@
         <div class="wrap">
             <h1 class="section-title">How the Internet Really Works</h1>
             <h2 class="site-subtitle">An Illustrated Guide to protocols, privacy, censorship, and governance</h2>
-            <img src="images/cover2.jpg" alt="Book cover: How The Internet Really Works" />
+			<div class="col-parent">
+				<img class="col" id="site-cover" src="images/cover.jpg" alt="Book cover: How The Internet Really Works" />
+				<p class="col"><em>How the Internet Really Works</em> is an accessible, comic book-like, illustrated introduction to how the internet works under the hood, designed to give people a basic understanding of the technical aspects of the Internet that they need in order to advocate for digital rights.</p>
+			</div>
 
-            <p><em>How the Internet Really Works</em> is an accessible, comic book-like, illustrated introduction to how the internet works under the hood, designed to give people a basic understanding of the technical aspects of the Internet that they need in order to advocate for digital rights.</p>
+            <a href="#img1" class="zoom">
+                <img src="images/BGP.jpg" alt="Book illustration BGP" />
+            </a>
+            <a href="#img2" class="zoom">
+                <img src="images/Tor.jpg" alt="Book illustration Tor" />
+            </a>
+            <a href="#img3" class="zoom last">
+                <img src="images/IG.jpg" alt="Book illustration Internet Governance" />
+            </a>
 
-            <p><em>How the Internet Really Works</em> is a comic book-like introduction to the technical side of the internet, narrated by a cute cat character. The book contains playful illustrations and concise explanations detailing transport protocols and basic internet infrastructure as well as larger technological concepts like security and privacy, algorithms, and Internet infrastructure governance. You will gain enough technical understanding to become knowledgeable about digital privacy concerns that affect every internet user.</p>
+            <!-- lightbox hidden big images -->
+
+            <a href="#_" class="lightbox" id="img1">
+                <img src="images/BGP.jpg" alt="Book illustration BGP" />
+            </a>
+            <a href="#_" class="lightbox" id="img2">
+                <img src="images/Tor.jpg" alt="Book illustration Tor" />
+            </a>
+            <a href="#_" class="lightbox" id="img3">
+                <img src="images/IG.jpg" alt="Book illustration Internet Governance" />
+            </a>
+
+            <p><em>How the Internet Really Works</em> is a comic book-like introduction to the technical side of the internet, narrated by a cute cat character. The book contains playful illustrations and concise explanations detailing transport protocols and basic internet infrastructure as well as larger technological concepts like security and privacy, algorithms, and internet governance. You will gain enough technical understanding to become knowledgeable about digital privacy concerns that affect every internet user.</p>
+
             <h3>Table of contents</h3>
             <ul>
                 <li>Chapter 1: How is the Internet Networked?</li>
@@ -71,37 +95,47 @@
     <section class="section" id="order">
         <div class="wrap">
             <h3 class="section-title">Order the book</h3>
-                <p class="col">Order here:<br />
-                <a href="" target="_blank">No Starch Press</a><br />
-                <a href="https://www.penguinrandomhouse.com/books/616820/how-the-internet-really-works-by-ulrike-uhlig-and-mallory-knodel/" target="_blank">Penguinrandomhouse</a><br />
-                <a href="http://www.amazon.com/gp/product/1718500297?tag=randohouseinc7986-20" target="_blank">Amazon</a>
-                </p>
+                <div class="col-parent">
+                    <p class="col">ISBN 9781718500297<br />
+                    128 Pages | size 8" x 10" (ca. 20 x 25 cm)<br />
+                    Published by No Starch Press, San Francisco</p>
 
-                <p class="col">ISBN 9781718500297<br />
-                128 Pages | size 8" x 10" (ca. 20 x 25 cm)<br />
-                Published by No Starch Press, San Francisco</p>
+                    <p class="col">
+                        → <a href="https://nostarch.com/" target="_blank">No Starch Press</a><br />
+                        → <a href="https://www.penguinrandomhouse.com/books/616820/how-the-internet-really-works-by-ulrike-uhlig-and-mallory-knodel/" target="_blank">Penguin Random House</a><br />
+                        → <a href="http://www.amazon.com/gp/product/1718500297?tag=randohouseinc7986-20" target="_blank">Amazon</a>
+                    </p>
+
+                </div>
         </div>
     </section>
 
     <section class="section" id="meet">
         <div class="wrap">
             <h3 class="section-title">Meet Catnip</h3>
-            <p>We will do a comic reading at Privacyweek Vienna (online) in October 2020.</p>
+            <div class="col-parent">
+                <div class="col">
+                    <p><strong>October 2020</strong> Comic reading at <a href="https://privacyweek.at/" target="_blank">Privacyweek Vienna/Austria</a> (online)</p>
+                    <p><strong>15 September 2020</strong> Publication date</p>
+                </div>
 
-            <p>Contact Catnip by email at <a class="mail" rel="catnip//article19.org" title="You need Javascript to display the email address correctly.">catnip @ ARTICLE19 .org</a> or fill in the form below:</p>
-            <form method="post" action="scripts/mail.php" name="catnip_form" id="catnip_form">
-                <input type="hidden" name="name" value="Catnip" required readonly />
-                <input type="email" placeholder="Your email address" class="form" name="email" value="" required />
-                <textarea name="message"></textarea>
-                <input type="submit" value="Subscribe" class="submit form" name="email-button" />
-                <div id="form-messages"><!-- Display success / error messages --></div>
-            </form>
+                <div class="col">
+                    <p>Contact Catnip by email at <a class="mail" rel="catnip//article19.org" title="You need Javascript to display the email address correctly.">catnip @ ARTICLE19 .org</a> or fill in the form below:</p>
+                    <form method="post" action="scripts/mail.php" name="catnip_form" id="catnip_form">
+                        <input type="hidden" name="name" value="Catnip" required readonly />
+                        <input type="email" placeholder="Your email address" class="form" name="email" value="" required />
+                        <textarea class="form" placeholder="Your message" name="message"></textarea>
+                        <input type="submit" value="Subscribe" class="submit form" name="email-button" />
+                        <div id="form-messages"><!-- Display success / error messages --></div>
+                    </form>
+                </div>
+            </div>
         </div>
     </section>
 
     <section class="section" id="tor">
         <div class="wrap">
-            <h3 class="section-title">Exploring the Tor network</h3>
+            <h3 class="section-title">Explore the Tor network</h3>
             <p>In 2018, we've printed a tabloid containing the book's chapter about the Tor network. This chapter is a bit different in the book from 2020. But you can still <a target="_blank" href="data/Catnip_Article19_Tor_poster_2018.pdf">download  «Understanding the Tor network» (2018)</a> and print it yourself.</p>
             <p>
                 <a target="_blank" href="data/Catnip_Article19_Tor_poster_2018.pdf">
