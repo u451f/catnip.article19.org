@@ -1,7 +1,6 @@
 /* Base */
 /* ----------------------------------------------------------*/
 
-@import url(https://fonts.googleapis.com/css?family=Montserrat:700,Roboto:500);
 @import url("stylesheet.css");
 
 * {
@@ -12,22 +11,20 @@
 html, body { height: 100%; }
 
 body {
-  font-family: "Roboto", Arial, Helvetica, sans-serif;
-  font-weight: 500;
-  font-size: 17px;
-  line-height: 1.6em;
-  font-weight: 400;
-  background-color: #fff;
-  background-position: center center;
-  background-repeat: no-repeat;
+    font-family: "d-dinregular", Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.6em;
+    background-color: #fff;
 }
 
-a         { color: #7faf9c; text-decoration: none; }
-a:hover   { text-decoration: underline; }
-a:visited { color: #7faf9c; }
+a {
+    color: #458a7d;
+    text-decoration: none;
+    font-weight: bold;
+}
 
-b, strong {
-    font-weight: 700;
+a:hover {
+    text-decoration: underline;
 }
 
 .error {
@@ -50,7 +47,7 @@ b, strong {
   text-align: left;
 }
 
-.post-header .wrap, .footer .wrap, #get .wrap, #news .wrap  {
+.post-header .wrap, .footer .wrap {
   text-align: center;
 }
 
@@ -60,16 +57,22 @@ b, strong {
 /* Site header */
 
 .site-header {
-  overflow: hidden;
-  padding-top: 5em;
-  margin: auto;
-  position: relative;
+    overflow: hidden;
+    padding-top: 5em;
+    margin: auto;
+    position: relative;
+}
+
+#site-cover {
+    margin: auto;
+    text-align: center;
+    display: block;
+    margin-bottom: 2em;
 }
 
 .site-subtitle {
-  font-family: "vintiibold", sans-serif;
-    color: #111;
-    font-size: 1.3em;
+    font-family: "vintiibold", sans-serif;
+    font-size: 1.1em;
     line-height: 1.5em;
     margin-top: -1.5em;
     margin-bottom: 2em;
@@ -85,7 +88,7 @@ b, strong {
     padding: 0.5em 0.75em;
     font-weight: bold;
     background: #fff;
-    border-bottom: 1px dashed #7faf9c;
+    border-bottom: 1px dashed #458a7d;
 }
 
 .site-nav .menu-icon { display: none; }
@@ -96,22 +99,22 @@ b, strong {
 }
 
 .site-nav .page-link.current {
-    color: #7faf9c;
+    color: #458a7d;
 }
 
 /* sections */
 
 .section {
     padding: 3.5em 0 2em;
-    border-bottom: 1px dashed #7faf9c;
+    border-bottom: 1px dashed #458a7d;
 }
 
 .section .section-title {
-  font-family: "vintiibold", sans-serif;
-  text-align: center;
-  font-size: 4.5em;
-  line-height: 1.35em;
-  margin-bottom: 0.5em;
+    font-family: "vintiibold", sans-serif;
+    text-align: center;
+    font-size: 4em;
+    line-height: 1.1em;
+    margin-bottom: 0.5em;
 }
 
 .section p, .section ul, .section ol {
@@ -126,6 +129,46 @@ b, strong {
     max-width: 100%;
     height: auto;
     margin-bottom: 1em;
+}
+
+a.zoom {
+    text-decoration: none;
+    box-sizing: border-box;
+    display: inline-block;
+    border: 1px dotted;
+    overflow: hidden;
+}
+
+a.zoom img {
+    margin: 0 !important;
+}
+
+a.zoom:hover img {
+    transform: scale(1.3);
+    transition: all .5s ease-in-out;
+}
+
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    margin-top: 2%;
+}
+
+.lightbox:target {
+    outline: none;
+    display: block;
 }
 
 .footer {
@@ -149,26 +192,31 @@ form {
     background: #fff;
     padding: 0.2em 0.4em;
     border: 1px solid #ddd;
-}
-
-select.form {
+    box-sizing: border-box;
+    width: 100%;
+    display: block;
     margin-bottom: 1em;
+    font-size: 0.9em;
+    font-family: "d-dinregular", Arial, sans-serif;
 }
 
-.button.form {
-    padding: 0.5em 1em;
-    font-weight: bold;
-    cursor: pointer;
-    background-color: #2a7ae2;
-    color: #fff;
-}
-
-.button.form:hover {
-    background-color: #0b1728;
+textarea.form {
+    height: 15vh;
 }
 
 .submit {
+    padding: 0.5em 1em;
     cursor: pointer;
+    background-color: #458a7d;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    font-family: "d-dinregular", Arial, sans-serif;
+    font-weight: bold;
+}
+
+.submit:hover {
+    background-color: #000;
 }
 
 /* Post styles */
@@ -279,7 +327,7 @@ select.form {
     padding: 5px;
     margin: 0;
     cursor: pointer;
-    color: #7faf9c;
+    color: #458a7d;
   }
 
   .post-header h1 { font-size: 36px; }
@@ -290,4 +338,25 @@ select.form {
   .post-content ul,
   .post-content ol { padding-left: 10px; }
 
+}
+@media screen and (min-width: 769px) {
+    body {
+        font-size: 20px;
+    }
+    .section .section-title {
+          font-size: 4.5em;
+    }
+    .col-parent {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 30px;
+    }
+    a.zoom {
+        width: 30%;
+        margin-right: 4%;
+    }
+
+    a.zoom.last {
+        margin-right: 0;
+    }
 }
