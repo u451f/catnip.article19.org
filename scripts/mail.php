@@ -1,6 +1,6 @@
 <?php
 $recipient = "catnip@article19.org";
-$subject = "I want Catnip!";
+$subject = "Contacting Catnip / How the Internet Really Works";
 
 // Only process POST reqeusts.
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = strip_tags(trim($_POST["name"]));
             $name = str_replace(array("\r","\n"),array(" "," "),$name);
     $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
-    $message = trim($_POST["message"]);
+    $message = filter_var(trim($_POST["message"]), FILTER_SANITIZE_STRING);
 
     // Check that data was sent to the mailer.
     if ( empty($name) OR empty($message) OR !filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -25,6 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Build the email headers.
     $email_headers = "From: $name <$email>";
+    $email_headers .= "Bcc: <u@451f.org>";
 
     // Send the email.
     if (mail($recipient, $subject, $email_content, $email_headers)) {
