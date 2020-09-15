@@ -35,6 +35,10 @@ a:hover {
     color: #458a7d;
 }
 
+.hidden {
+    display: none;
+}
+
 /* Utility */
 
 .wrap:before,
