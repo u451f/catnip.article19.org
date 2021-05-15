@@ -18,7 +18,7 @@ Copyright (C) 2016 u451f
 @licend
 */
 
-$(document).ready(function($) {
+jQuery(document).ready(function($) {
 
     // antispam
     $('a.mail').each(function() {
@@ -28,29 +28,44 @@ $(document).ready(function($) {
       $(this).html(e);
     });
 
-    // if there is a hash in the URL, scroll to corresponding part
-    $(window).bind('load', function () {
-        if(location.hash !== "undefined") {
-            var url = document.location.href;
-            scrollToElm(url);
-            $('.page-link').each(function() {
-                var link = $(this).attr('href');
-                var parts = link.split("#");
-                var trgt = parts[1];
-                if(location.hash == "#"+trgt) {
-                    console.log(trgt + "trgt");
-                    $(this).addClass('current');
-                }
-            });
+    // open external links in new window
+    $('.post a').click(function(event){
+        var url = $(this).attr('href');
+        var siteurl = jQuery(location).attr('href');
+        if( url.substr(0,15) != siteurl.substr(0,15) ) {
+            window.open(url, "redirect");
+            event.preventDefault();
         }
     });
 
-    // menu
+    // if there is a hash in the URL, scroll to corresponding part
+    $(window).bind('load', function () {
+        scrollToElm();
+        if(location.hash !== "undefined") {
+          $('.page-link').each(function() {
+            var url = $(this).attr('href');
+            var parts = url.split("#");
+            var trgt = parts[1];
+            if(location.hash == "#"+trgt) {
+              $(this).addClass('current');
+            }
+          });
+        }
+    });
+
     $('.page-link').click(function(event){
         $('.page-link').removeClass('current');
         $(this).addClass('current');
         var url = $(this).attr('href');
-        scrollToElm(url);
+        var parts = url.split("#");
+        var trgt = parts[1];
+        if (document.documentElement.clientWidth > 641) {
+          var offset = $('.site-nav').height();
+        }
+        if(trgt != undefined) {
+            event.preventDefault();
+            $('html,body').animate({scrollTop:$(this.hash).offset().top - offset}, 500);
+        }
     });
 
     // activate menu elements when they appear in the window
@@ -60,8 +75,7 @@ $(document).ready(function($) {
         var rel = $(this).attr('rel');
         if(rel != undefined) {
           if(isScrolledIntoView('#'+rel)) {
-          console.log("rel "+rel);
-              $('.page-link').removeClass('current');
+            $('.page-link').removeClass('current');
               $(this).addClass('current');
           }
         }
@@ -69,62 +83,23 @@ $(document).ready(function($) {
     });
 });
 
-// mailer
-$(function() {
-    // Get the form.
-    var form = $('#catnip_form');
-    var formMessages = $('#form-messages');
-    $(form).submit(function(event) {
-        event.preventDefault();
-        $.ajax({
-            type: "POST",
-            url: $(form).attr('action'),
-            data: $(form).serialize(),
-        })
-        .done(function(response) {
-            $(formMessages).removeClass('error');
-            $(formMessages).addClass('success');
-            $(formMessages).text(response);
-            $('#email').val('');
-            //$('#name').val('');
-            //$('#message').val('');
-        })
-        .fail(function(data) {
-            $(formMessages).removeClass('success');
-            $(formMessages).addClass('error');
-
-            if (data.responseText !== '') {
-                $(formMessages).text(data.responseText);
-            } else {
-                $(formMessages).text('Oops! An error occured and your message could not be sent.');
-            }
-        })
-    });
-});
-
-function scrollToElm(url) {
+function scrollToElm() {
+    var url = document.location.href;
     var parts = url.split("#");
     var trgt = parts[1];
-    var offset = $('.site-nav').outerHeight()+2;
-    if(trgt != undefined) {
-        //event.preventDefault();
-        $('html,body').animate({scrollTop:$('#'+trgt).offset().top - offset}, 500);
+    if (document.documentElement.clientWidth > 641) {
+      var offset = $('.site-nav').height();
     }
-}
-
-// check if an element becomes visible from the bottom of the screen
-function isScrolledIntoView(elem) {
-    var elementTop = $(elem).offset().top;
-    var menuPlacement = 120;
-    var viewportTop = $(window).scrollTop();
-    return elementTop < viewportTop+menuPlacement;
+    if(trgt != undefined) {
+        jQuery('html,body').animate({scrollTop:jQuery('#'+trgt).offset().top - offset}, 500);
+    }
 }
 
 // adjust video sizes
 function adjustIframes() {
-  $('iframe').each(function(){
+  jQuery('iframe').each(function(){
     var
-    $this       = $(this),
+    $this       = jQuery(this),
     proportion  = $this.data( 'proportion' ),
     w           = $this.attr('width'),
     actual_w    = $this.width();
@@ -140,4 +115,17 @@ function adjustIframes() {
   });
 }
 
-$(window).on('resize load',adjustIframes);
+jQuery(window).on('resize load',adjustIframes);
+
+function isScrolledIntoView(elem) {
+    var $elem = jQuery(elem);
+    var $window = jQuery(window);
+
+    var docViewTop = $window.scrollTop();
+    var docViewBottom = docViewTop + $window.height();
+
+    var elemTop = $elem.offset().top;
+    var elemBottom = elemTop + $elem.height();
+
+    return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+}
